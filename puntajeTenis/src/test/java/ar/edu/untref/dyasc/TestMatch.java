@@ -102,6 +102,14 @@ public class TestMatch {
     }
     
     @Test(expected = MatchFinalizadoException.class)
+    public void agregarPuntoConMatchFinalizado2() throws MatchFinalizadoException {
+        Match match = new Match();
+
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        match.agregarPunto(Jugadores.JUGADOR_2);
+    }
+    
+    @Test(expected = MatchFinalizadoException.class)
     public void agregarPuntoConMatchFinalizado() throws MatchFinalizadoException {
         Match match = new Match();
 
