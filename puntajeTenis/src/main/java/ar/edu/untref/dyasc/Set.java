@@ -56,7 +56,7 @@ public class Set {
 
     public boolean finalizo() {
         
-        return false;
+        return (getGanador() != null);
     }
 
 }
