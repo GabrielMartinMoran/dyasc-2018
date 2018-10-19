@@ -21,7 +21,11 @@ public class TestMatch {
     public void jugador1GanaUnSet() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 6*4);
+        try {
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 6*4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
 
@@ -33,7 +37,11 @@ public class TestMatch {
     public void jugador1Gana3Sets() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        try {
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
 
@@ -45,7 +53,11 @@ public class TestMatch {
     public void jugador1Gana2Sets() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 2*6*4);
+        try {
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 2*6*4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
 
@@ -57,7 +69,11 @@ public class TestMatch {
     public void jugador1GanaElMatch() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        try {
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
         Jugadores ganador = match.getGanador();
@@ -71,7 +87,11 @@ public class TestMatch {
     public void jugador2GanaElMatch() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_2, 3*6*4);
+        try {
+            this.agregarPuntos(match, Jugadores.JUGADOR_2, 3*6*4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
         Jugadores ganador = match.getGanador();
@@ -81,13 +101,17 @@ public class TestMatch {
         Assert.assertEquals(Jugadores.JUGADOR_2, ganador);
     }
     
-    private void agregarPuntos(Match match, Jugadores jugador, int puntos) {
+    @Test(expected = MatchFinalizadoException.class)
+    public void agregarPuntoConMatchFinalizado() throws MatchFinalizadoException {
+        Match match = new Match();
+
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4+1);
+    }
+
+    
+    private void agregarPuntos(Match match, Jugadores jugador, int puntos) throws MatchFinalizadoException {
         for (int i = 0; i < puntos; i++) {
-            try {
                 match.agregarPunto(jugador);
-            } catch (MatchFinalizadoException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
