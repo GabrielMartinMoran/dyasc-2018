@@ -21,11 +21,23 @@ public class TestMatch {
     public void jugador1GanaUnSet() {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 24);
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 6*4);
         int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
         int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
 
         Assert.assertEquals(1, puntajeJ1);
+        Assert.assertEquals(0, puntajeJ2);
+    }
+    
+    @Test
+    public void jugador1Gana3Sets() {
+        Match match = new Match();
+
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
+        int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
+
+        Assert.assertEquals(3, puntajeJ1);
         Assert.assertEquals(0, puntajeJ2);
     }
     
