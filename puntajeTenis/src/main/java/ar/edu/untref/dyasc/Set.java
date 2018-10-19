@@ -54,4 +54,9 @@ public class Set {
         return ganador;
     }
 
+    public boolean finalizo() {
+        
+        return false;
+    }
+
 }
