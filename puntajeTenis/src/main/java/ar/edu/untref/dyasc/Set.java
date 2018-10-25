@@ -35,6 +35,14 @@ public class Set {
         Game ultimoGame = games.get(games.size() - 1);
         ultimoGame.agregarPunto(jugador);
         if (ultimoGame.finalizo()) {
+            if(this.isTieBreak) {
+                if(jugador == Jugadores.JUGADOR_1) {
+                    gamesJugador1++;
+                }else {
+                    gamesJugador2++;
+                }
+                return;
+            }
             if (ultimoGame.getPuntaje(Jugadores.JUGADOR_1) == ValorPuntajeGame.GANO) {
                 gamesJugador1++;
             } else {

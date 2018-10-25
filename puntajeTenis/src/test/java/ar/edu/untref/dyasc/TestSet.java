@@ -112,7 +112,19 @@ public class TestSet {
         Assert.assertNull(ganador);
     }
 
-    
+    @Test
+    public void jugador1GanaEnTieBreak() {
+        Set set = new Set();
+
+        this.agregarPuntos(set, Jugadores.JUGADOR_2, 20);
+        this.agregarPuntos(set, Jugadores.JUGADOR_1, 24);
+        this.agregarPuntos(set, Jugadores.JUGADOR_2, 4);
+        this.agregarPuntos(set, Jugadores.JUGADOR_1, 7);
+
+        Jugadores ganador = set.getGanador();
+
+        Assert.assertEquals(Jugadores.JUGADOR_1, ganador);
+    }
 
     @Test
     public void jugador2GanaEnTieBreak() {
