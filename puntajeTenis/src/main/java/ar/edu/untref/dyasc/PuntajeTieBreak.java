@@ -1,7 +1,7 @@
 package ar.edu.untref.dyasc;
 
 public class PuntajeTieBreak implements Puntaje<Integer> {
-    
+
     protected int puntos = 0;
 
     @Override
@@ -12,22 +12,16 @@ public class PuntajeTieBreak implements Puntaje<Integer> {
 
     @Override
     public Integer quitarPunto() {
-        if (puntos <= 0) {
-            throw new PuntajeException(
-                    "No es posible quitar mas puntos que el minimo");
-        }
-        puntos--;
-        return getPuntaje();
+        throw new PuntajeException("No es posible quitar mas puntos que el minimo");
     }
 
     @Override
     public void setPuntaje(Integer valor) {
         if (valor < 0) {
-            throw new SetPuntajeException(
-                    "El elemento no pudo ser asignado ya que es menor a cero");
+            throw new SetPuntajeException("El elemento no pudo ser asignado ya que es menor a cero");
         }
         puntos = valor;
-        
+
     }
 
     @Override

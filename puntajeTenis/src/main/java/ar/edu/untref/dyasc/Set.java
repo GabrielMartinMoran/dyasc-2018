@@ -11,6 +11,7 @@ public class Set {
     private List<Game> games;
     private int gamesJugador1;
     private int gamesJugador2;
+    private boolean isTieBreak;
 
     public Set() {
         this.games = new ArrayList<Game>();
@@ -39,7 +40,12 @@ public class Set {
             } else {
                 gamesJugador2++;
             }
-            games.add(new Game());
+            this.isTieBreak = gamesJugador1 == 6 && gamesJugador1 == gamesJugador2;
+            if(this.isTieBreak) {
+                games.add(new TieBreak());
+            }else {
+                games.add(new Game());
+            }
         }
     }
 
@@ -47,15 +53,14 @@ public class Set {
         Jugadores ganador = null;
         if ((gamesJugador1 == 6 && gamesJugador2 < 5) || gamesJugador1 == 7) {
             ganador = Jugadores.JUGADOR_1;
-        } else if ((gamesJugador2 == 6 && gamesJugador1 < 5)
-                || gamesJugador2 == 7) {
+        } else if ((gamesJugador2 == 6 && gamesJugador1 < 5) || gamesJugador2 == 7) {
             ganador = Jugadores.JUGADOR_2;
         }
         return ganador;
     }
 
     public boolean finalizo() {
-        
+
         return (getGanador() != null);
     }
 
