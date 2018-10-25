@@ -32,7 +32,6 @@ public class TestPuntajeTieBreak {
         puntaje.quitarPunto();
     }
 
-
     @Test(expected = SetPuntajeException.class)
     public void creamosUnPuntajeTieBreakYTratamosDeAsgnarUnPuntajeNegativo() {
         PuntajeTieBreak puntaje = new PuntajeTieBreak();
@@ -43,13 +42,13 @@ public class TestPuntajeTieBreak {
     @Test
     public void creamosUnPuntajeTieBreakAsignamosUnPuntajeYCorroboramosElValor() {
         PuntajeTieBreak puntaje = new PuntajeTieBreak();
-        agregarPuntos(puntaje,5);
+        agregarPuntos(puntaje, 5);
 
         int valorPuntaje = puntaje.getPuntaje();
 
         Assert.assertEquals(5, valorPuntaje);
     }
-    
+
     private void agregarPuntos(PuntajeTieBreak puntaje, int puntos) {
         for (int i = 0; i < puntos; i++) {
             puntaje.agregarPunto();

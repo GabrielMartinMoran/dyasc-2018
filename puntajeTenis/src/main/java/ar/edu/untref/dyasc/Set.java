@@ -35,10 +35,10 @@ public class Set {
         Game ultimoGame = games.get(games.size() - 1);
         ultimoGame.agregarPunto(jugador);
         if (ultimoGame.finalizo()) {
-            if(this.isTieBreak) {
-                if(jugador == Jugadores.JUGADOR_1) {
+            if (this.isTieBreak) {
+                if (jugador == Jugadores.JUGADOR_1) {
                     gamesJugador1++;
-                }else {
+                } else {
                     gamesJugador2++;
                 }
                 return;
@@ -49,9 +49,9 @@ public class Set {
                 gamesJugador2++;
             }
             this.isTieBreak = gamesJugador1 == 6 && gamesJugador1 == gamesJugador2;
-            if(this.isTieBreak) {
+            if (this.isTieBreak) {
                 games.add(new TieBreak());
-            }else {
+            } else {
                 games.add(new Game());
             }
         }

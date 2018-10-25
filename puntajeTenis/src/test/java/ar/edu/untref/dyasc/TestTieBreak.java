@@ -33,7 +33,6 @@ public class TestTieBreak {
 
         agregarPuntos(tieBreak, Jugadores.JUGADOR_1, 2);
 
-
         Assert.assertFalse(tieBreak.finalizo());
     }
 

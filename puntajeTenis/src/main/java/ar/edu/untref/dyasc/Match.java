@@ -22,6 +22,7 @@ public class Match {
     public Set ultimoSet() {
         return this.sets.get(this.sets.size() - 1);
     }
+
     public void agregarPunto(Jugadores jugador) throws MatchFinalizadoException {
         if (getGanador() != null) {
             throw new MatchFinalizadoException();

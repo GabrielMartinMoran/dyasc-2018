@@ -60,7 +60,6 @@ public class Game {
     }
 
     public boolean finalizo() {
-        return puntajeJugador1.getPuntaje() == ValorPuntajeGame.GANO
-                || puntajeJugador2.getPuntaje() == ValorPuntajeGame.GANO;
+        return puntajeJugador1.getPuntaje() == ValorPuntajeGame.GANO || puntajeJugador2.getPuntaje() == ValorPuntajeGame.GANO;
     }
 }

@@ -17,7 +17,7 @@ public class TieBreak extends Game {
     public ValorPuntajeGame getPuntaje(Jugadores jugador) {
         return ValorPuntajeGame._0;
     }
-    
+
     @Override
     public void agregarPunto(Jugadores jugador) {
         if (finalizo()) {
@@ -32,7 +32,7 @@ public class TieBreak extends Game {
             break;
         }
     }
-    
+
     @Override
     public boolean finalizo() {
         return (Math.abs(puntajeJugador1.getPuntaje() - puntajeJugador2.getPuntaje()) >= 2) && (puntajeJugador1.getPuntaje() >= 7 || puntajeJugador2.getPuntaje() >= 7);
