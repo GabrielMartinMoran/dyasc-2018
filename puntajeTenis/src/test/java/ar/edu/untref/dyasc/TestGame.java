@@ -46,8 +46,7 @@ public class TestGame {
     public void sumar2PuntosAlJugador1() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 2);
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
 
@@ -59,8 +58,7 @@ public class TestGame {
     public void sumar2PuntosAlJugador2() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 2);
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
 
@@ -72,9 +70,7 @@ public class TestGame {
     public void sumar3PuntosAlJugador1() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -87,9 +83,7 @@ public class TestGame {
     public void sumar3PuntosAlJugador2() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 3);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -102,10 +96,7 @@ public class TestGame {
     public void sumar4PuntosAlJugador1ParaQueGane() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 4);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -118,10 +109,7 @@ public class TestGame {
     public void sumar4PuntosAlJugador2ParaQueGane() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 4);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -135,12 +123,8 @@ public class TestGame {
 
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 3);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -154,13 +138,8 @@ public class TestGame {
 
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 4);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -174,14 +153,8 @@ public class TestGame {
 
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 5);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
         ValorPuntajeGame puntajeJ2 = game.getPuntaje(Jugadores.JUGADOR_2);
@@ -195,13 +168,8 @@ public class TestGame {
 
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
-        game.agregarPunto(Jugadores.JUGADOR_2);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
+        agregarPuntos(game, Jugadores.JUGADOR_2, 4);
         game.agregarPunto(Jugadores.JUGADOR_1);
 
         ValorPuntajeGame puntajeJ1 = game.getPuntaje(Jugadores.JUGADOR_1);
@@ -215,10 +183,7 @@ public class TestGame {
     public void terminarGameYVerificarQueSeTermino() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 4);
 
         Assert.assertTrue(game.finalizo());
     }
@@ -227,9 +192,7 @@ public class TestGame {
     public void noTerminarGameYVerificarQueNoSeTermino() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 3);
 
         Assert.assertFalse(game.finalizo());
     }
@@ -238,10 +201,12 @@ public class TestGame {
     public void agregarPuntoConGameFinalizado() {
         Game game = new Game();
 
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
-        game.agregarPunto(Jugadores.JUGADOR_1);
+        agregarPuntos(game, Jugadores.JUGADOR_1, 5);
+    }
+
+    private void agregarPuntos(Game game, Jugadores jugador, int puntos) {
+        for (int i = 0; i < puntos; i++) {
+            game.agregarPunto(jugador);
+        }
     }
 }
