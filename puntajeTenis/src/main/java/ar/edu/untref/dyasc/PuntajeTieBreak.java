@@ -6,13 +6,13 @@ public class PuntajeTieBreak implements Puntaje<Integer> {
 
     @Override
     public Integer agregarPunto() {
-        puntos++;
+        this.puntos++;
         return getPuntaje();
     }
 
     @Override
     public Integer quitarPunto() {
-        throw new PuntajeException("No es posible quitar mas puntos que el minimo");
+        throw new PuntajeException("No es posible quitar puntos");
     }
 
     @Override
@@ -20,13 +20,13 @@ public class PuntajeTieBreak implements Puntaje<Integer> {
         if (valor < 0) {
             throw new SetPuntajeException("El elemento no pudo ser asignado ya que es menor a cero");
         }
-        puntos = valor;
+        this.puntos = valor;
 
     }
 
     @Override
     public Integer getPuntaje() {
-        return puntos;
+        return this.puntos;
     }
 
 }
