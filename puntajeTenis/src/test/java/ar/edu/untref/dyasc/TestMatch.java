@@ -82,7 +82,7 @@ public class TestMatch {
         Assert.assertEquals(0, puntajeJ2);
         Assert.assertEquals(Jugadores.JUGADOR_1, ganador);
     }
-    
+
     @Test
     public void jugador2GanaElMatchCon1TieBreak() {
         Match match = new Match();
@@ -106,7 +106,31 @@ public class TestMatch {
         Assert.assertEquals(0, puntajeJ1);
         Assert.assertEquals(Jugadores.JUGADOR_2, ganador);
     }
-    
+
+    @Test
+    public void jugador2GanaElMatchCon2TieBreak() {
+        Match match = new Match();
+
+        try {
+            for (int i = 0; i < 2; i++) {
+                this.agregarPuntos(match, Jugadores.JUGADOR_1, 20);
+                this.agregarPuntos(match, Jugadores.JUGADOR_2, 24);
+                this.agregarPuntos(match, Jugadores.JUGADOR_1, 4);
+                this.agregarPuntos(match, Jugadores.JUGADOR_2, 7);
+            }
+            this.agregarPuntos(match, Jugadores.JUGADOR_2, 6 * 4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
+        int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
+        int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
+        Jugadores ganador = match.getGanador();
+
+        Assert.assertEquals(3, puntajeJ2);
+        Assert.assertEquals(0, puntajeJ1);
+        Assert.assertEquals(Jugadores.JUGADOR_2, ganador);
+    }
+
     @Test
     public void jugador1GanaElMatchCon1TieBreak() {
         Match match = new Match();
