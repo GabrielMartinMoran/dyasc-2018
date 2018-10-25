@@ -84,6 +84,30 @@ public class TestMatch {
     }
 
     @Test
+    public void jugador1GanaElMatchCon1TieBreak() {
+        Match match = new Match();
+
+        try {
+            for (int i = 0; i < 1; i++) {
+                this.agregarPuntos(match, Jugadores.JUGADOR_2, 20);
+                this.agregarPuntos(match, Jugadores.JUGADOR_1, 24);
+                this.agregarPuntos(match, Jugadores.JUGADOR_2, 4);
+                this.agregarPuntos(match, Jugadores.JUGADOR_1, 7);
+            }
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 2 * 6 * 4);
+        } catch (MatchFinalizadoException e) {
+            e.printStackTrace();
+        }
+        int puntajeJ1 = match.getPuntaje(Jugadores.JUGADOR_1);
+        int puntajeJ2 = match.getPuntaje(Jugadores.JUGADOR_2);
+        Jugadores ganador = match.getGanador();
+
+        Assert.assertEquals(3, puntajeJ1);
+        Assert.assertEquals(0, puntajeJ2);
+        Assert.assertEquals(Jugadores.JUGADOR_1, ganador);
+    }
+
+    @Test
     public void jugador1GanaElMatchCon2TieBreak() {
         Match match = new Match();
 
