@@ -16,13 +16,13 @@ public class TestMatch {
         Assert.assertEquals(0, puntajeJ1);
         Assert.assertEquals(0, puntajeJ2);
     }
-    
+
     @Test
     public void jugador1GanaUnSet() {
         Match match = new Match();
 
         try {
-            this.agregarPuntos(match, Jugadores.JUGADOR_1, 6*4);
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 6 * 4);
         } catch (MatchFinalizadoException e) {
             e.printStackTrace();
         }
@@ -32,13 +32,13 @@ public class TestMatch {
         Assert.assertEquals(1, puntajeJ1);
         Assert.assertEquals(0, puntajeJ2);
     }
-    
+
     @Test
     public void jugador1Gana3Sets() {
         Match match = new Match();
 
         try {
-            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3 * 6 * 4);
         } catch (MatchFinalizadoException e) {
             e.printStackTrace();
         }
@@ -48,13 +48,13 @@ public class TestMatch {
         Assert.assertEquals(3, puntajeJ1);
         Assert.assertEquals(0, puntajeJ2);
     }
-    
+
     @Test
     public void jugador1Gana2Sets() {
         Match match = new Match();
 
         try {
-            this.agregarPuntos(match, Jugadores.JUGADOR_1, 2*6*4);
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 2 * 6 * 4);
         } catch (MatchFinalizadoException e) {
             e.printStackTrace();
         }
@@ -64,13 +64,13 @@ public class TestMatch {
         Assert.assertEquals(2, puntajeJ1);
         Assert.assertEquals(0, puntajeJ2);
     }
-    
+
     @Test
     public void jugador1GanaElMatch() {
         Match match = new Match();
 
         try {
-            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+            this.agregarPuntos(match, Jugadores.JUGADOR_1, 3 * 6 * 4);
         } catch (MatchFinalizadoException e) {
             e.printStackTrace();
         }
@@ -82,13 +82,13 @@ public class TestMatch {
         Assert.assertEquals(0, puntajeJ2);
         Assert.assertEquals(Jugadores.JUGADOR_1, ganador);
     }
-    
+
     @Test
     public void jugador2GanaElMatch() {
         Match match = new Match();
 
         try {
-            this.agregarPuntos(match, Jugadores.JUGADOR_2, 3*6*4);
+            this.agregarPuntos(match, Jugadores.JUGADOR_2, 3 * 6 * 4);
         } catch (MatchFinalizadoException e) {
             e.printStackTrace();
         }
@@ -100,27 +100,25 @@ public class TestMatch {
         Assert.assertEquals(0, puntajeJ1);
         Assert.assertEquals(Jugadores.JUGADOR_2, ganador);
     }
-    
+
     @Test(expected = MatchFinalizadoException.class)
     public void agregarPuntoConMatchFinalizado2() throws MatchFinalizadoException {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4);
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3 * 6 * 4);
         match.agregarPunto(Jugadores.JUGADOR_2);
     }
-    
+
     @Test(expected = MatchFinalizadoException.class)
     public void agregarPuntoConMatchFinalizado() throws MatchFinalizadoException {
         Match match = new Match();
 
-        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3*6*4+1);
+        this.agregarPuntos(match, Jugadores.JUGADOR_1, 3 * 6 * 4 + 1);
     }
 
-    
     private void agregarPuntos(Match match, Jugadores jugador, int puntos) throws MatchFinalizadoException {
         for (int i = 0; i < puntos; i++) {
-                match.agregarPunto(jugador);
+            match.agregarPunto(jugador);
         }
     }
 }
-
