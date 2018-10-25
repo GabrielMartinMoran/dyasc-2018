@@ -11,7 +11,7 @@ public class Set {
     private List<Game> games;
     private int gamesJugador1;
     private int gamesJugador2;
-    private boolean isTieBreak;
+    private boolean isTieBreak = false;
 
     public Set() {
         this.games = new ArrayList<Game>();
