@@ -1,11 +1,8 @@
 package ar.edu.untref.dyasc;
 
-import ar.edu.untref.dyasc.Enums.Direction;
-import ar.edu.untref.dyasc.Enums.Orientation;
-import ar.edu.untref.dyasc.Enums.WorkingMode;
-import ParseResults.ArgumentsParseResult;
-import ParseResults.OptionsParseResult;
-import ParseResults.WorkingModeParseResult;
+import ar.edu.untref.dyasc.enums.Direction;
+import ar.edu.untref.dyasc.enums.Orientation;
+import ar.edu.untref.dyasc.enums.WorkingMode;
 
 public class ArgumentsParser {
 
@@ -41,84 +38,77 @@ public class ArgumentsParser {
             try {
                 result = Integer.parseInt(this.arguments[i]);
                 break;
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 continue;
             }
         }
         return result;
     }
 
-    /*
-     * Devuelve el resultado de parsear el argumento opciones
-     */
-    private OptionsParseResult parseOptions() throws Exception {
-        OptionsParseResult result = new OptionsParseResult();
-        String exceptionMessage = "El argumento opcion no es valido";
+    private String getOptionArgument() throws IllegalArgumentException {
         String value = getArgumentValue("o");
         if (value == null) {
-            return null;
+            return "hd";
         }
         if (value.length() != 2) {
-            throw new Exception(exceptionMessage);
+            throw new IllegalArgumentException(
+                    "El argumento opcion no es valido");
         }
-        String orientationValue = value.substring(0, 1);
-        String directionValue = value.substring(1, 2);
-        // Checkeamos la orientacion
-        switch (orientationValue) {
-        case "v":
-            result.orientation = Orientation.VERTICAL;
-            break;
-        case "h":
-            result.orientation = Orientation.HORIZONTAL;
-            break;
-        default:
-            throw new Exception(exceptionMessage);
-        }
-        // Checkeamos la direccion
-        switch (directionValue) {
-        case "d":
-            result.direction = Direction.DIRECT;
-            break;
-        case "i":
-            result.direction = Direction.INVERSE;
-            break;
-        default:
-            throw new Exception(exceptionMessage);
-        }
-        return result;
+        return value;
     }
 
-    /*
-     * Devuelve el resultado de parsear el argumento modo de trabajo
-     */
-    private WorkingModeParseResult parseWorkingMode() throws Exception {
-        WorkingModeParseResult result = new WorkingModeParseResult();
+    private Direction parseDirection() throws IllegalArgumentException {
+        String optionArg = getOptionArgument();
+        String directionValue = optionArg.substring(1, 2);
+        switch (directionValue) {
+        case "d":
+            return Direction.DIRECT;
+        case "i":
+            return Direction.INVERSE;
+        default:
+            throw new IllegalArgumentException(
+                    "El argumento opcion no es valido");
+        }
+    }
+
+    private Orientation parseOrientation() throws IllegalArgumentException {
+        String optionArg = getOptionArgument();
+        String orientationValue = optionArg.substring(0, 1);
+        switch (orientationValue) {
+        case "v":
+            return Orientation.VERTICAL;
+        case "h":
+            return Orientation.HORIZONTAL;
+        default:
+            throw new IllegalArgumentException(
+                    "El argumento opcion no es valido");
+        }
+    }
+
+    private WorkingMode parseWorkingMode() throws IllegalArgumentException {
         String exceptionMessage = "El argumento modo de funcionamiento no es valido";
         String value = getArgumentValue("m");
         if (value == null) {
-            result.mode = WorkingMode.LIST;
-            return result;
+            return WorkingMode.LIST;
         }
         switch (value) {
         case "l":
-            result.mode = WorkingMode.LIST;
-            break;
+            return WorkingMode.LIST;
         case "s":
-            result.mode = WorkingMode.SUM;
-            break;
+            return WorkingMode.SUM;
         default:
-            throw new Exception(exceptionMessage);
+            throw new IllegalArgumentException(exceptionMessage);
         }
-        return result;
     }
 
     /*
      * Devuelve el resultado de parsear todos los argumentos en un objeto de
      * tipo ArgumentsParseResult
      */
-    public ArgumentsParseResult parseArguments() throws Exception {
-        ArgumentsParseResult parseResult = new ArgumentsParseResult();
-        parseResult.options = parseOptions();
+    public Arguments parseArguments() throws IllegalArgumentException {
+        Arguments parseResult = new Arguments();
+        parseResult.direction = parseDirection();
+        parseResult.orientation = parseOrientation();
         parseResult.workingMode = parseWorkingMode();
         parseResult.fileOutput = getArgumentValue("f");
         parseResult.number = getNumberArgument();

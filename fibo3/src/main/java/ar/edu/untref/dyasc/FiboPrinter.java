@@ -2,8 +2,8 @@ package ar.edu.untref.dyasc;
 
 import java.io.PrintWriter;
 
-import ar.edu.untref.dyasc.Enums.Orientation;
-import ar.edu.untref.dyasc.Enums.WorkingMode;
+import ar.edu.untref.dyasc.enums.Orientation;
+import ar.edu.untref.dyasc.enums.WorkingMode;
 
 public class FiboPrinter {
     /*
@@ -30,27 +30,39 @@ public class FiboPrinter {
         return result;
     }
 
+    public void printSucesion(int[] sucesion, Arguments argumentsParseResult) {
+        if (argumentsParseResult.fileOutput == null) {
+            printSucesionOnScreen(sucesion, argumentsParseResult);
+        } else {
+            printSucesionToFile(sucesion, argumentsParseResult);
+        }
+    }
+
     /*
-     * Dado un array correspondiente a una sucesion, una orientacion y un modo
-     * de trabajo; imprime en pantalla el resultado de transformar la sucesion a
-     * un string aplicando el formato correspondiente a los parametros brindados
+     * Dado un array correspondiente a una sucesion y un ArgumentsParseResult;
+     * imprime en pantalla el resultado de transformar la sucesion a un string
+     * aplicando el formato correspondiente a los parametros brindados
      */
-    public void printSucesion(int[] sucesion, Orientation orientation,
-            WorkingMode workingMode) {
+    private void printSucesionOnScreen(int[] sucesion,
+            Arguments argumentsParseResult) {
+        Orientation orientation = argumentsParseResult.orientation;
+        WorkingMode workingMode = argumentsParseResult.workingMode;
         String separator = getSeparator(orientation);
         String result = generateSucesionString(sucesion, separator, workingMode);
         System.out.println(result);
     }
 
     /*
-     * Dado un array correspondiente a una sucesion, una orientacion, un modo de
-     * trabajo y un nombre de archivo; guarda en el archivo el resultado de
-     * transformar la sucesion a un string aplicando el formato correspondiente
-     * a los parametros brindados e imprime en pantalla la informacion de que el
-     * archivo se guardo correctamente
+     * Dado un array correspondiente a una sucesiony un ArgumentsParseResult;
+     * guarda en el archivo el resultado de transformar la sucesion a un string
+     * aplicando el formato correspondiente a los parametros brindados e imprime
+     * en pantalla la informacion de que el archivo se guardo correctamente
      */
-    public void printSucesionToFile(int[] sucesion, Orientation orientation,
-            WorkingMode workingMode, String fileOutput) {
+    public void printSucesionToFile(int[] sucesion,
+            Arguments argumentsParseResult) {
+        Orientation orientation = argumentsParseResult.orientation;
+        WorkingMode workingMode = argumentsParseResult.workingMode;
+        String fileOutput = argumentsParseResult.fileOutput;
         String separator = getSeparator(orientation);
         String fileContent = generateSucesionString(sucesion, separator,
                 workingMode);

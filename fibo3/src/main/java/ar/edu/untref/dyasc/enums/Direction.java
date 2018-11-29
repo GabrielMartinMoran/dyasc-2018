@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc.Enums;
+package ar.edu.untref.dyasc.enums;
 
 public enum Direction {
     DIRECT,
