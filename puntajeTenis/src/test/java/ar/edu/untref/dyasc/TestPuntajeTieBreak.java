@@ -3,6 +3,8 @@ package ar.edu.untref.dyasc;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Enums.Jugadores;
+
 public class TestPuntajeTieBreak {
 
     @Test
@@ -30,17 +32,6 @@ public class TestPuntajeTieBreak {
         puntaje.quitarPunto();
     }
 
-    @Test
-    public void creamosUnPuntajeTieBreakYAgregamosDosPuntosYQuitamosUno() {
-        PuntajeTieBreak puntaje = new PuntajeTieBreak();
-
-        puntaje.agregarPunto();
-        puntaje.agregarPunto();
-        int valorPuntaje = puntaje.quitarPunto();
-
-        Assert.assertEquals(1, valorPuntaje);
-    }
-
     @Test(expected = SetPuntajeException.class)
     public void creamosUnPuntajeTieBreakYTratamosDeAsgnarUnPuntajeNegativo() {
         PuntajeTieBreak puntaje = new PuntajeTieBreak();
@@ -51,11 +42,17 @@ public class TestPuntajeTieBreak {
     @Test
     public void creamosUnPuntajeTieBreakAsignamosUnPuntajeYCorroboramosElValor() {
         PuntajeTieBreak puntaje = new PuntajeTieBreak();
+        agregarPuntos(puntaje, 5);
 
-        puntaje.setPuntaje(5);
         int valorPuntaje = puntaje.getPuntaje();
 
         Assert.assertEquals(5, valorPuntaje);
+    }
+
+    private void agregarPuntos(PuntajeTieBreak puntaje, int puntos) {
+        for (int i = 0; i < puntos; i++) {
+            puntaje.agregarPunto();
+        }
     }
 
 }

@@ -24,21 +24,21 @@ public class TestPuntajeGame {
 
         Assert.assertEquals(ValorPuntajeGame._15, valorPuntaje);
     }
-    
-    @Test (expected = PuntajeException.class)
+
+    @Test(expected = PuntajeException.class)
     public void creamosUnPuntajeGameYAgregamosUnoMasAlMaximoDePuntos() {
         PuntajeGame puntaje = new PuntajeGame();
 
-        puntaje.agregarPunto(); //15
-        puntaje.agregarPunto(); //30
-        puntaje.agregarPunto(); //40
-        puntaje.agregarPunto(); //ADV
-        puntaje.agregarPunto(); //GANO
-        puntaje.agregarPunto(); //EXEPTION
+        puntaje.agregarPunto(); // 15
+        puntaje.agregarPunto(); // 30
+        puntaje.agregarPunto(); // 40
+        puntaje.agregarPunto(); // ADV
+        puntaje.agregarPunto(); // GANO
+        puntaje.agregarPunto(); // EXEPTION
 
     }
-    
-    @Test (expected = PuntajeException.class)
+
+    @Test(expected = PuntajeException.class)
     public void creamosUnPuntajeGameYTratamosDeQuitarUnPunto() {
         PuntajeGame puntaje = new PuntajeGame();
 
